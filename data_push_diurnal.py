@@ -1,4 +1,5 @@
 from flask import Flask, request, send_file
+import openpyxl
 from io import BytesIO
 import zipfile
 import os
@@ -21,8 +22,11 @@ Back-end Issues:
  - Directories were improperly set Dir + String != Dir/Name -> also instead use ./ notation or join.path from . (universal home dir)
  - Calling bad table name -- when referencing df2['Daily_Occurence'] which caused bad reference error 
  - Bad incoming app.route
- - Did not assign df_full locally before calling it
- - Use os.path.join instead
+ - Did not assign df_full locally before calling it within the outter try of the function.
+ - df_full should be re-evaluated - removed its conditional as I saw no previous reference for it -
+    compare against your original file to see if it was previously reference and I removed it.
+ - Use os.path.join instead of main DIR writting
+
 '''
 
 @app.route('/process_diurnal')
@@ -79,7 +83,6 @@ def process_diurnal(url, output_dir):
         oFile.close()
     
     try:
-        df_full = None
         df = pd.read_csv(os.path.join(DIR, "temp.txt"),skiprows = 6) #reads data into Pandas dataframe
         os.remove(os.path.join(DIR, "temp.txt"))
         url = url.split("/")[4]
@@ -168,16 +171,17 @@ def process_diurnal(url, output_dir):
                 if df_full.empty:
                     df_full = df_diurnal
                 else:
-                    df_full = pd.merge(df_full, df_diurnal, on="Hour", how="outer")
+                     df_full = pd.merge(df_full, df_diurnal, on="Hour", how="outer")
 
             print(df_diurnal)
-            os.makedirs(os.path.join(DIR,"New_Algorithm","Output", exist_ok=True))
+            os.makedirs(os.path.join(DIR,"New_Algorithm","Output"), exist_ok=True)
             outdir = os.path.join(DIR,'New_Algorithm',"Output",f"Output_{url}.xlsx")
             df_full = df_full.sort_values(by=['Hour']).reset_index(drop=True)
             df_full.to_excel(outdir,index=False)   #saves table as Excel file
-            os.makedirs(os.path.join(DIR,"New_Algorithm","Plots", exist_ok=True))
-
+            os.makedirs(os.path.join(DIR,"New_Algorithm","Plots"), exist_ok=True)
+            
             for i in range(len(features)):
+                # Exception now occuring here: Cant detect -> AOD_340nm_Miu |
                 plt.plot(df_full['Hour'], df_full[str(features[i])+'_Miu'])
                 plt.xlabel('Hourly Bin')
                 plt.ylabel('Diurnal Variability of '+str(features[i]))
