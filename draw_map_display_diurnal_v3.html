@@ -1,0 +1,334 @@
+<!--#set var="product" value="AOD" -->
+<!--#set var="category" value="DATA" -->
+
+<title>AERONET Diurnal Variability Display Page</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="title" content="Aerosol Robotic Network (AERONET) Homepage">
+<meta name="description" content="AERONET is an international federation of ground based sun and sky scanning radiometer networks which includes hundreds of instruments covering a large portion of Earth.s surface to provide measurements for aerosol research, satellite and atmospheric model validation, and synergy with other databases.">
+<meta name="orgcode" content="618">
+<meta name="rno" content="Pawan.Gupta@nasa.gov">
+<meta name="content-owner" content="Ilya.Slutsker.1">
+<meta name="webmaster" content="Ilya.Slutsker.1">
+<META NAME="ROBOTS" CONTENT="NOODP, NOINDEX, NOFOLLOW">
+
+<link rel=stylesheet href="./styles.css" type="text/css">
+<link rel=stylesheet href="./styles2.css" type="text/css">
+<link rel=stylesheet href="./styles_data_buttons.css" type="text/css">
+
+<style type="text/css">
+<!--
+.style1 {font-weight: bold}
+.style2 {color: #666666}
+-->
+</style>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+//-->
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+
+
+<!-- Google Analytics required script -->
+<!-- <script id="_fed_an_js_tag" type="text/javascript" src="/js/federated-analytics.all.min.js?agency=NASA&subagency=GSFC&pua=UA-53781545-1"></script> -->
+
+<script language="javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=GSFC&amp;pua=UA-53781545-1"></script>
+
+<link rel="./leaflet15.css"
+     crossorigin=""/>
+<script src="./leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin=""></script>
+    <head>
+          <style>
+                html, body {
+                        height: 100%;
+                        margin: 0;
+                }
+                .leaflet-container {
+                        min-width:15%;
+                        min-height:auto;
+                        height: 360px;
+                        width: 720px;
+                        max-width: 100%;
+                        max-height: 100%;
+                }
+                .selection-table {
+                        border: 2px solid black;
+                }
+                select {
+                        font-size: 14px;
+                }
+                .filter-button {
+                        padding: 5px 10px;
+                        margin: 2px;
+                        border: 1px solid #ccc;
+                        background-color: #fff;
+                        cursor: pointer;
+                }
+                .filter-button.active {
+                        background-color: #337ab7;
+                        color: white;
+                }
+                .filter-button:hover {
+                        background-color: #337ab7;
+                        color: white;
+                }
+          </style>
+    </head>
+<body onLoad="MM_preloadImages('/images/sh1sn10_v3.gif','/images/sh1sn11_v3.gif','/images/sh1sn2_v3.gif','/images/sh1sn3_v3.gif','/images/sh1sn4_v3.gif','/images/sh1sn5_v3.gif','/images/sh1sn6_v3.gif','/images/sh1sn7_v3.gif','/images/sh1sn8_v3.gif','/images/sh1sn9_v3.gif')" link="#006699" vlink="#006699" alink="#006699">
+<span class="style1"></span><!-- open table 1 -->
+<div align="center">
+<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="750">
+<tr>
+	<td bgcolor="#000000" width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+	<td bgcolor="#000000" width="730"><img src="/images/shim.gif" alt="" width="730" height="10"></td>
+
+	<td bgcolor="#000000" width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+</tr>
+<tr>
+	<td width="10"><a href="#content"><img src="/images/shim.gif" alt="Skip all navigation and jump to content" width="10" height="10" border="0"></a></td>
+	<td width="730"><a href="#site"><img src="/images/shim.gif" alt="Jump to site navigation" width="730" height="10" border="0"></a></td>
+	<td width="10"><a href="#section"><img src="/images/shim.gif" alt="Jump to section navigation." width="10" height="10" border="0"></a></td>
+</tr>
+<tr>
+	<td width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+	<td align="center">
+	<!-- open table 2 -->
+
+	<table bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="730">
+	<tr> 
+		<td bgcolor="#ffffff" align="center">
+		<!-- open header table 1 -->
+
+                         <!--#include virtual="/web_components/header.html" -->
+
+		<!-- close header table 1 -->
+		
+		</td>
+	</tr>
+	<tr>
+		<td width="730"><img src="/images/shim.gif" alt="" width="730" height="5"></td>
+	</tr>
+	<tr> 
+		<td bgcolor="#ffffff">
+
+		<!-- open header table 2 -->
+		<table align="center" border="0" cellpadding="0" cellspacing="0" width="730" align="left">
+		<tr align="left">
+			<td align="left" colspan="5"><img src="/images/aerosol_logo.gif" width="730" height="100" border="0" alt="AERONET - Aerosols"></td>
+		</tr>
+		<tr bgcolor="#ffffff">
+			<td width="730" colspan="5"><a name="site"><img src="/images/shim.gif" width="730" height="5" border="0" alt=""></a></td>
+		</tr>
+		<!-- BEGIN SITE NAVIGATION --------------------------------- BEGIN SITE NAVIGATION -->
+
+                <!--#include virtual="web_components/main_navigation.html" -->
+
+		<!-- END SITE NAVIGATION ------------------------------------- END SITE NAVIGATION -->
+
+<!-- close header table 2 -->
+		</table>
+		</td>
+	</tr>
+	<tr>
+
+		<td width="730"><img src="/images/shim.gif" alt="" width="730" height="5"></td>
+	</tr>
+	<tr>
+		<td valign="top">
+		<!-- open table 3 -->
+
+		<table border="0" cellpadding="0" cellspacing="0" width="730">
+		<tr>
+			<td valign="top"  bgcolor="#FFFFFF">
+			<!-- open navbar table 1 -->
+			<table border="0" cellpadding="0" cellspacing="0" width="179">
+			<!-- BEGIN SECTION HEADING --------------------------------- BEGIN SECTION HEADING -->
+			<tr>
+				<td bgcolor="006699">
+				<!-- open navbar table 2 -->
+
+				<table border="0" cellpadding="0" cellspacing="0" width="179">
+				<tr>
+					<td><img src="/images/shim.gif" width="179" height="10" border="0" alt=""></td>
+				</tr>					
+				<tr>
+					<td><p><a href="/new_web/index.html" class="sectionLnk">&nbsp;+Home</a></p>
+					  <p><a name="form">&nbsp;</a></p></td>
+				</tr>
+<tr><td><img src="/images/sh1.gif" width="179" height="35" border="0" alt="Aerosol Optical Depth"></td></tr>
+				<!-- close navbar table 2 -->
+				</table></td>
+			</tr>
+                        <!-- END SECTION HEADING ------------------------------------- END SECTION HEADING -->
+                        <!-- BEGIN SECTION NAVIGATION --------------------------- BEGIN SECTION NAVIGATION -->
+
+                                 <!--#include virtual="web_components/info_buttons.html" -->
+
+                                   <!--#include virtual="web_components/data_buttons.html" -->
+
+			<!-- END SECTION NAVIGATION ------------------------------- END SECTION NAVIGATION -->
+			<!-- close navbar table 1 -->
+		   </table>
+			</td>
+
+			<td><a name="content"><img src="/images/shim.gif" width="15" height="1" alt="" border="0"></a></td>
+			<!-- BEGIN CONTENT ------------------------------------------------- BEGIN CONTENT -->
+			<td valign="top">
+			<!-- open table 4 -->
+<table width=70%><tr><td><h1>AERONET Diurnal Variability Data Display Interface</h1></td><td bgcolor=#FFB164><h1>Version 3 Direct Sun Algorithm</h1></td></tr></table>
+
+<div id="message-container">
+<h1 id="message"></h1></div>
+<div id="message-container">
+<h1 id="message1"></h1></div>
+
+<table width=720 class="selection-table">
+<tr align="center">
+<td>
+<h1>Active Status</h1>
+<select id="status-dropdown">
+    <option value="1">All</option>
+    <option value="4">Active</option>
+    <option value="3">Inactive</option>
+    <option value="2">Limited</option>
+</select>
+</td>
+<td>
+<h1>AOD Level</h1>
+<select id="aod-dropdown">
+    <option value="1">Level 1.0</option>
+    <option value="2">Level 1.5</option>
+    <option value="3">Level 2.0</option>
+</select>
+</td>
+<td>
+<h1>Enable Lunar</h1>
+<select id="lunar-dropdown">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+</select>
+</td>
+</tr>
+<tr align="center">
+<td>
+<h1>Starting Year</h1>
+<select id="year-dropdown"></select>
+</td>
+<td>
+<h1>Starting Month</h1>
+<select id="month-dropdown"></select>
+</td>
+<td>
+<h1>Starting Day</h1>
+<select id="day-dropdown"></select>
+</td>
+</tr>
+<tr align="center">
+<td>
+<h1>Final Year</h1>
+<select id="year2-dropdown"></select>
+</td>
+<td>
+<h1>Final Month</h1>
+<select id="month2-dropdown"></select>
+</td>
+<td>
+<h1>Final Day</h1>
+<select id="day2-dropdown"></select>
+</td>
+</tr>
+</table>
+
+<p>
+<div id="map" style="width: 720px; height: 360px;">
+<script type="text/javascript" src="./big_embed_diurnal.js"></script>
+</div>
+
+<div id="cursor-coordinates" style="margin-top: 10px;"></div>
+
+<table>
+<input type="text" id="search-box" placeholder="Search for AERONET site">
+<button id="search-button" class="filter-button">Search</button>
+<button id="reset-button" class="filter-button">Reset</button>
+<div id="error-message" style="color: red; display: none;"></div>
+<ul id="suggestions-list"></ul>
+</table>
+
+<div id="table-container">
+  <table id="marker-table" border width = 720>
+    <tbody id="marker-table-body" align = center>
+    </tbody>
+  </table>
+</div>
+</td>
+			<!-- END CONTENT ----------------------------------------------------- END CONTENT -->
+		</tr>
+		<!-- close table 3 -->
+		</table>
+
+		</td></tr>
+	<!-- BEGIN FOOTER --------------------------------------------------- BEGIN FOOTER -->
+	<tr>
+		<td width="730"><img src="/images/shim.gif" alt="" width="730" height="5"></td>
+	</tr>
+	<tr align="left" bgcolor="#cccccc">
+		<td>
+		<!-- open footer table 1 -->
+
+ <!--#include virtual="web_components/footer.html" -->
+ <!--#config timefmt="%B %d, %Y" -->
+ <!--#echo var="LAST_MODIFIED" -->
+
+</td>
+</tr>
+</table>
+ 
+</td>
+        </tr>
+        <!-- END FOOTER ------------------------------------------------------- END FOOTER -->
+        <!-- close table 2 -->
+ 
+        </table>
+        </td>
+        <td width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+</tr>
+<tr>
+        <td width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+        <td width="730"><img src="/images/shim.gif" width="730" height="10" border="0" alt=""></td>
+        <td width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+</tr>
+<tr>
+        <td bgcolor="#000000" width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+ 
+        <td bgcolor="#000000" width="730"><img src="/images/shim.gif" alt="" width="730" height="10"></td>
+        <td bgcolor="#000000" width="10"><img src="/images/shim.gif" alt="" width="10" height="1"></td>
+</tr>
+<!-- close table 1 -->
+</table>
+</div>
+
+</body></html>
